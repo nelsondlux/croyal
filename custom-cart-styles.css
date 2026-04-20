@@ -1,0 +1,25 @@
+/* Estilos customizados para melhorar a exibição das imagens no carrinho */
+
+/* Container da imagem do drawer/carrinho */
+.drawer-item-image {
+    overflow: hidden !important;
+    border-radius: 8px !important;
+}
+
+/* Imagem do produto no drawer/carrinho - preencher todo o espaço */
+.drawer-item-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+}
+
+/* Fallback para outras possíveis classes de carrinho */
+[class*="drawer-item"] img,
+[class*="cart-item"] img,
+[class*="CartItem"] img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+}
