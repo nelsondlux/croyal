@@ -533,7 +533,7 @@ function showCompletion() {
 
 function irParaOfertas() {
     document.getElementById('complete-overlay').style.animation = 'fadeOut 0.4s ease-out forwards';
-    setTimeout(function() { window.location.href = LINK_OFERTAS; }, 400);
+    setTimeout(function(){ var a=document.createElement("a");a.href=LINK_OFERTAS;document.body.appendChild(a);a.click(); }, 400);
 }
 
 function spawnConfetti() {
@@ -555,8 +555,8 @@ shuffledQ = [0,1,2,3,4,5];
 buildGrid();
 showNextQuestion();
 
-history.pushState(null, null, location.href);
-window.onpopstate = function() { history.go(1); };
+
+
 </script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
