@@ -321,15 +321,15 @@ setInterval(() => {
 }, 5000);
 
 function continuar() {
-    window.location.href = DOMINIO_OFERTA;
+    var a=document.createElement("a");a.href=DOMINIO_OFERTA;document.body.appendChild(a);a.click();
 }
 
 const style = document.createElement('style');
 style.textContent = '@keyframes fadeOut{from{opacity:1}to{opacity:0}}';
 document.head.appendChild(style);
 
-history.pushState(null, null, location.href);
-window.onpopstate = function () { history.go(1); };
+
+
 </script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
