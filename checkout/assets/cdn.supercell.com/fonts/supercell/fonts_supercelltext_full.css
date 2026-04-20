@@ -1,0 +1,24 @@
+@font-face {
+	font-family: 'SupercellText-Bold';
+	src: url('//cdn.supercell.com/fonts/supercell/supercelltext/full/supercelltext_w_bd.eot');
+	src: url('//cdn.supercell.com/fonts/supercell/supercelltext/full/supercelltext_w_bd.eot?#iefix') format('embedded-opentype'),
+	url('//cdn.supercell.com/fonts/supercell/supercelltext/full/supercelltext_w_bd.woff2') format('woff2'),
+	url('//cdn.supercell.com/fonts/supercell/supercelltext/full/supercelltext_w_bd.woff') format('woff'),
+	url('//cdn.supercell.com/fonts/supercell/supercelltext/full/supercelltext_w_bd.ttf') format('truetype');
+}    
+@font-face {
+	font-family: 'SupercellText-Medium';
+	src: url('//cdn.supercell.com/fonts/supercell/supercelltext/full/supercelltext_w_md.eot');
+	src: url('//cdn.supercell.com/fonts/supercell/supercelltext/full/supercelltext_w_md.eot?#iefix') format('embedded-opentype'),
+	url('//cdn.supercell.com/fonts/supercell/supercelltext/full/supercelltext_w_md.woff2') format('woff2'),
+	url('//cdn.supercell.com/fonts/supercell/supercelltext/full/supercelltext_w_md.woff') format('woff'),
+	url('//cdn.supercell.com/fonts/supercell/supercelltext/full/supercelltext_w_md.ttf') format('truetype');
+}    
+@font-face {
+	font-family: 'SupercellText-Regular';
+	src: url('//cdn.supercell.com/fonts/supercell/supercelltext/full/supercelltext_w_rg.eot');
+	src: url('//cdn.supercell.com/fonts/supercell/supercelltext/full/supercelltext_w_rg.eot?#iefix') format('embedded-opentype'),
+	url('//cdn.supercell.com/fonts/supercell/supercelltext/full/supercelltext_w_rg.woff2') format('woff2'),
+	url('//cdn.supercell.com/fonts/supercell/supercelltext/full/supercelltext_w_rg.woff') format('woff'),
+	url('//cdn.supercell.com/fonts/supercell/supercelltext/full/supercelltext_w_rg.ttf') format('truetype');
+}    

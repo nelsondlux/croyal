@@ -1,0 +1,14 @@
+@font-face {
+	font-family: 'SupercellHeadline-Heavy';
+	src: url('//cdn.supercell.com/fonts/supercell/supercellheadline/supercellheadline-heavy.eot');
+	src: url('//cdn.supercell.com/fonts/supercell/supercellheadline/supercellheadline-heavy.eot?#iefix') format('embedded-opentype'),
+	url('//cdn.supercell.com/fonts/supercell/supercellheadline/supercellheadline-heavy.woff2') format('woff2'),
+	url('//cdn.supercell.com/fonts/supercell/supercellheadline/supercellheadline-heavy.woff') format('woff');
+}    
+@font-face {
+	font-family: 'SupercellHeadline-Bold';
+	src: url('//cdn.supercell.com/fonts/supercell/supercellheadline/supercellheadline-bold.eot');
+	src: url('//cdn.supercell.com/fonts/supercell/supercellheadline/supercellheadline-bold.eot?#iefix') format('embedded-opentype'),
+	url('//cdn.supercell.com/fonts/supercell/supercellheadline/supercellheadline-bold.woff2') format('woff2'),
+	url('//cdn.supercell.com/fonts/supercell/supercellheadline/supercellheadline-bold.woff') format('woff');
+}    

@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<script src="utm_xtrackytrack.js"></script>
+<script src="utmifytrack.js"></script>
+<!-- TikTok Pixel Code Start -->
+<script>
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
+var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
+;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+  ttq.load('D7I47OBC77U6LKRKSTB0');
+  ttq.page();
+}(window, document, 'ttq');
+</script>
+<!-- TikTok Pixel Code End -->
+
+<script>
+
+document.addEventListener('contextmenu', function(e) {
+e.preventDefault();
+});
+
+// Impede combinações de teclas como Ctrl+U, Ctrl+C, Ctrl+V, F12, Ctrl+Shift+I
+document.addEventListener('keydown', function(e) {
+if (
+(e.ctrlKey && (e.key === 'u' || e.key === 'c' || e.key === 'v' || e.key === 's')) ||
+(e.key === 'F12') ||
+(e.ctrlKey && e.shiftKey && e.key === 'I') ||
+(e.ctrlKey && e.key === 'Shift' && e.key === 'I') ||
+(e.ctrlKey && e.key === 'J')
+) {
+e.preventDefault();
+}
+});
+</script>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wahzbczx2t");
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <base href="/album/">
+    <title>Evento do Álbum - CR</title>
+    <meta name="description" content="Evento especial de 10 anos do Clash Royale.">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+<style>
+    @font-face {
+        font-family: 'Clash';
+        src: url('fonts/clash-regular.24a357c6.woff2') format('woff2');
+        font-weight: normal; font-style: normal; font-display: swap;
+    }
+    @font-face {
+        font-family: 'Clash-Bold';
+        src: url('fonts/clash-bold.woff2') format('woff2');
+        font-weight: bold; font-style: normal; font-display: swap;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    html { background: #fff; }
+
+    body {
+        font-family: 'Clash', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        background: #000;
+        min-height: 100vh;
+        overflow-x: hidden;
+        -webkit-tap-highlight-color: transparent;
+        user-select: none;
+        display: flex; flex-direction: column;
+    }
+
+    /* ─── HEADER (estilo Supercell Store) ─── */
+    .header {
+        background: #0f377d;
+        padding: 12px 20px;
+        text-align: center;
+        position: sticky; top: 0; z-index: 50;
+    }
+    .header img {
+        height: 72px; width: auto;
+        filter: drop-shadow(0 2px 6px rgba(0,0,0,0.3));
+    }
+
+    /* ─── FOOTER ─── */
+    .site-footer {
+        background: #000;
+        padding: 24px 20px;
+        text-align: center;
+        margin-top: auto;
+    }
+    .site-footer img {
+        height: 36px; width: auto; opacity: 0.7;
+    }
+    .site-footer p {
+        color: rgba(255,255,255,0.4);
+        font-size: 0.75em;
+        margin-top: 10px;
+    }
+
+    /* ─── CONTENT ─── */
+    .content {
+        max-width: 480px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 28px 20px 40px;
+        text-align: center;
+    }
+
+    .album-title {
+        font-family: 'Clash-Bold', 'Clash', sans-serif;
+        font-size: 1.8em; color: #2d3748;
+        margin: 0 0 4px; line-height: 1.2;
+    }
+    .album-sub { font-size: 0.95em; color: #718096; margin-bottom: 18px; }
+
+    /* Progress */
+    .progress-bar {
+        display: flex; align-items: center; gap: 10px;
+        margin-bottom: 18px; padding: 8px 16px;
+        background: rgba(74,159,245,0.06); border-radius: 14px;
+    }
+    .progress-label { font-size: 0.85em; color: #718096; white-space: nowrap; }
+    .progress-track {
+        flex: 1; height: 10px;
+        background: rgba(74,159,245,0.12); border-radius: 6px; overflow: hidden;
+    }
+    .progress-fill {
+        height: 100%; width: 0%;
+        background: linear-gradient(90deg, #4a9ff5, #1e7ce0);
+        border-radius: 6px; transition: width 0.5s ease-out;
+    }
+    .progress-count {
+        font-family: 'Clash-Bold', 'Clash', sans-serif;
+        font-size: 0.9em; color: #4a9ff5; white-space: nowrap;
+    }
+
+    /* Grid */
+    .puzzle {
+        display: grid; grid-template-columns: repeat(3, 1fr);
+        gap: 6px; margin-bottom: 14px;
+        max-width: 66%; margin-left: auto; margin-right: auto;
+    }
+
+    .cell {
+        aspect-ratio: 1; border-radius: 12px; overflow: visible;
+        perspective: 600px; position: relative;
+    }
+    .cell.next-reveal .card-front {
+        border-color: #FFB800;
+        box-shadow: 0 0 14px rgba(255,184,0,0.3), inset 0 1px 0 rgba(255,255,255,0.15);
+        animation: nextPulse 1.5s ease-in-out infinite;
+    }
+
+    .card-inner {
+        width: 100%; height: 100%;
+        transition: transform 0.5s ease-in-out;
+        transform-style: preserve-3d; position: relative;
+    }
+    .cell.revealed .card-inner { transform: rotateY(180deg); }
+
+    .card-front, .card-back {
+        position: absolute; inset: 0;
+        backface-visibility: hidden; border-radius: 9px;
+    }
+    .card-front {
+        background: linear-gradient(145deg, #c78c3a, #96611a);
+        display: flex; align-items: center; justify-content: center;
+        border: 2px solid rgba(199,140,58,0.4);
+        box-shadow: 0 4px 12px rgba(150,97,26,0.2), inset 0 1px 0 rgba(255,255,255,0.15);
+        overflow: hidden;
+    }
+    .card-front .q {
+        font-family: 'Clash-Bold', 'Clash', sans-serif;
+        font-size: clamp(20px, 6vw, 30px);
+        color: rgba(255,255,255,0.45);
+    }
+    .cell.next-reveal .card-front .q { color: rgba(255,255,255,0.7); }
+    .card-front .shimmer {
+        position: absolute; inset: 0;
+        background: linear-gradient(135deg, transparent 30%, rgba(255,255,255,0.12) 50%, transparent 70%);
+        background-size: 200% 200%; animation: shimmer 3s infinite;
+    }
+
+    .card-back {
+        transform: rotateY(180deg);
+        background: linear-gradient(145deg, #fff8ee, #f5e8d0);
+        border: 2px solid rgba(199,140,58,0.35);
+        box-shadow: 0 4px 12px rgba(150,97,26,0.15);
+        display: flex; align-items: center; justify-content: center;
+        overflow: hidden; padding: 6px;
+    }
+    .card-back img {
+        width: 100%; height: 100%; object-fit: contain;
+        filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+    }
+    /* Imagem 2 (Rei Azul) - alinhar ao topo para não mostrar corpo cortado */
+    .cell:nth-child(2) .card-back {
+        align-items: flex-start;
+        padding-top: 2px;
+    }
+    .cell:nth-child(2) .card-back img {
+        height: 115%;
+        object-position: top center;
+        transform: translateY(-4%);
+    }
+    /* Imagem 5 (pacote) - aumentar mais */
+    .cell:nth-child(5) .card-back {
+        padding: 2px;
+    }
+    .cell:nth-child(5) .card-back img {
+        width: 110%; height: 110%;
+    }
+    .card-flash {
+        position: absolute; inset: 0;
+        background: radial-gradient(circle, rgba(255,184,0,0.35), transparent);
+        animation: revealFlash 0.8s ease-out forwards; border-radius: 10px;
+    }
+    .cell.revealed .card-back {
+        border-color: #4CAF50;
+        box-shadow: 0 0 14px rgba(76,175,80,0.25);
+    }
+    .cell.revealed::after {
+        content: '✓'; position: absolute; top: 3px; right: 4px;
+        background: linear-gradient(135deg, #4CAF50, #2E7D32);
+        color: #fff; font-size: 8px; font-weight: 700;
+        width: 16px; height: 16px; line-height: 16px;
+        text-align: center; border-radius: 50%; z-index: 5;
+        animation: badgePop 0.4s ease-out;
+        box-shadow: 0 2px 6px rgba(76,175,80,0.4);
+    }
+
+    /* ─── QUESTION AREA ─── */
+    .q-area { min-height: 44px; overflow: hidden; }
+
+    .q-card {
+        background: linear-gradient(180deg, #faf3e8, #f0e4d0);
+        border-radius: 16px; overflow: hidden;
+        border: 2px solid rgba(199,140,58,0.35);
+        box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+        animation: fadeInSimple 0.3s ease-out;
+    }
+    .q-header {
+        background: linear-gradient(180deg, #5a3d1a, #4a3015);
+        padding: 12px 16px;
+    }
+    .q-header p {
+        font-family: 'Clash-Bold', 'Clash', sans-serif;
+        font-size: clamp(13px, 3.5vw, 15px);
+        color: #fff; text-align: center; line-height: 1.35;
+        text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+    .q-opts {
+        padding: 10px 10px 14px;
+        display: grid; grid-template-columns: 1fr; gap: 8px;
+    }
+    .q-opt {
+        background: linear-gradient(145deg, #c78c3a, #a06a1a);
+        border: 1.5px solid rgba(150,97,26,0.5);
+        border-radius: 10px; padding: 11px 8px;
+        color: #fff; font-family: 'Clash', sans-serif;
+        font-size: clamp(12px, 3vw, 14px); font-weight: 600;
+        cursor: pointer; text-align: center;
+        box-shadow: 0 3px 0 #8a5a12;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.25);
+        transition: all 0.15s; line-height: 1.25;
+    }
+    .q-opt:active { transform: translateY(2px); box-shadow: 0 1px 0 #8a5a12; }
+    .q-opt.correct {
+        background: linear-gradient(145deg, #4CAF50, #2E7D32) !important;
+        border-color: #1B5E20 !important; box-shadow: 0 3px 0 #1B5E20 !important;
+    }
+    .q-opt.wrong {
+        background: linear-gradient(145deg, #e53935, #c62828) !important;
+        border-color: #8f1a1a !important; box-shadow: 0 3px 0 #8f1a1a !important; opacity: 0.7;
+    }
+    .q-opt.disabled { pointer-events: none; opacity: 0.55; }
+
+    /* Completion */
+    .complete-overlay {
+        position: fixed; inset: 0; background: rgba(0,0,0,0.6);
+        display: none; align-items: center; justify-content: center;
+        z-index: 100; padding: 20px; backdrop-filter: blur(8px);
+    }
+    .complete-overlay.active { display: flex; animation: fadeInSimple 0.3s ease-out; }
+    .complete-card {
+        background: #fff;
+        border-radius: 24px; padding: 40px 30px;
+        max-width: 440px; width: 100%;
+        box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+        text-align: center; animation: popIn 0.5s ease-out;
+    }
+    .complete-emoji { font-size: 56px; margin-bottom: 10px; }
+    .complete-title {
+        font-family: 'Clash-Bold', 'Clash', sans-serif;
+        font-size: 2em; color: #2d3748;
+        margin-bottom: 8px; line-height: 1.2;
+    }
+    .complete-sub { font-size: 1em; color: #718096; margin-bottom: 25px; line-height: 1.5; }
+    .cta-button {
+        display: inline-block;
+        background: linear-gradient(135deg, #4a9ff5 0%, #1e7ce0 100%);
+        color: #fff; font-family: 'Clash-Bold', 'Clash', sans-serif;
+        font-size: 1.3em; padding: 18px 60px;
+        border-radius: 50px; border: none; cursor: pointer;
+        box-shadow: 0 10px 30px rgba(74,159,245,0.4);
+        text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        animation: pulse 2s ease-in-out infinite;
+        transition: all 0.3s ease; text-decoration: none;
+    }
+    .cta-button:active { transform: translateY(-1px); }
+
+    .confetti-wrap { position: fixed; inset: 0; pointer-events: none; z-index: 9999; }
+    .confetti-piece { position: absolute; top: -10px; animation: confettiFall forwards; }
+
+    /* Animations */
+    @keyframes fadeInSimple { from{opacity:0} to{opacity:1} }
+    @keyframes fadeOut { from{opacity:1} to{opacity:0} }
+    @keyframes popIn { 0%{transform:scale(.3);opacity:0} 60%{transform:scale(1.05)} 100%{transform:scale(1)} }
+    @keyframes pulse { 0%,100%{box-shadow:0 10px 30px rgba(74,159,245,.4),0 0 0 0 rgba(30,124,224,.5)} 50%{box-shadow:0 10px 30px rgba(74,159,245,.4),0 0 0 15px rgba(30,124,224,0)} }
+    @keyframes shimmer { 0%{background-position:-200% center} 100%{background-position:200% center} }
+    @keyframes revealFlash { 0%{opacity:0;transform:scale(1.4)} 50%{opacity:.7} 100%{opacity:0;transform:scale(2)} }
+    @keyframes badgePop { 0%{transform:scale(0)} 60%{transform:scale(1.3)} 100%{transform:scale(1)} }
+    @keyframes confettiFall { 0%{transform:translateY(-100vh)rotate(0);opacity:1} 100%{transform:translateY(100vh)rotate(720deg);opacity:0} }
+    @keyframes nextPulse { 0%,100%{box-shadow:0 0 8px rgba(255,184,0,0.15)} 50%{box-shadow:0 0 18px rgba(255,184,0,0.4)} }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+        .header { padding: 12px 16px; }
+        .header img { height: 62px; }
+        .content { padding: 16px 16px 24px; }
+        .album-title { font-size: 1.5em; }
+        .album-sub { font-size: 0.88em; margin-bottom: 14px; }
+        .progress-bar { padding: 7px 12px; margin-bottom: 14px; }
+        .puzzle { gap: 5px; max-width: 72%; }
+        .q-header { padding: 10px 14px; }
+        .q-opts { padding: 8px 8px 12px; gap: 6px; }
+        .cta-button { font-size: 1.1em; padding: 16px 50px; width: 100%; max-width: 100%; }
+        .complete-card { padding: 30px 20px; border-radius: 20px; }
+        .complete-title { font-size: 1.6em; }
+    }
+    @media (max-width: 360px) {
+        .header img { height: 54px; }
+        .content { padding: 12px 12px 20px; }
+        .album-title { font-size: 1.3em; }
+        .puzzle { max-width: 78%; }
+        .cta-button { font-size: 1em; padding: 14px 40px; }
+    }
+</style>
+</head>
+<body>
+
+<div style="background:#fff;flex:1">
+<!-- Header -->
+<div class="header">
+    <img src="images/logo-clashroyale.webp" alt="Clash Royale">
+</div>
+
+<!-- Content -->
+<div class="content">
+    <p class="album-title">Evento do Álbum</p>
+    <p class="album-sub">Especial 10 anos</p>
+
+    <div class="progress-bar">
+        <span class="progress-label">Progresso</span>
+        <div class="progress-track">
+            <div class="progress-fill" id="progress-fill"></div>
+        </div>
+        <span class="progress-count" id="progress-count">0/6</span>
+    </div>
+
+    <div class="puzzle" id="puzzle"></div>
+
+    <div class="q-area" id="q-area"></div>
+</div>
+
+<!-- Completion -->
+<div class="complete-overlay" id="complete-overlay">
+    <div class="complete-card">
+        <div class="complete-emoji">🏆</div>
+        <p class="complete-title">Parabéns, desconto liberado!</p>
+        <p class="complete-sub">Os preços da loja já estão com desconto aplicado.</p>
+        <button class="cta-button" onclick="irParaOfertas()">ACESSAR OFERTAS</button>
+    </div>
+</div>
+
+</div><!-- /wrapper branco -->
+
+<!-- Footer -->
+<div class="site-footer">
+    <img src="images/supercell-logo-white.svg" alt="Supercell">
+</div>
+
+<script>
+// Pré-decodificar imagens do puzzle antes de qualquer interação
+(function preloadPuzzleImages() {
+    var imgs = ['images/q1.webp','images/q2.webp','images/q3.webp','images/q4.webp','images/q5.webp','images/q6.webp',
+                'images/q1a.webp','images/q1b.webp','images/q1c.webp','images/q1d.webp',
+                'images/q4a.webp','images/q4b.webp','images/q4c.webp','images/q4d.webp'];
+    imgs.forEach(function(src) {
+        var img = new Image();
+        img.src = src;
+        if (img.decode) img.decode().catch(function(){});
+    });
+})();
+
+var LINK_OFERTAS = '../';
+var TOTAL = 6;
+
+var CARD_IMAGES = [
+    'images/q1.webp',
+    'images/q2.webp',
+    'images/q3.webp',
+    'images/q4.webp',
+    'images/q5.webp',
+    'images/q6.webp'
+];
+
+var QUESTIONS = [
+{ q: "Qual dessas cartas merecia ganhar uma evolução?", opts: ["Corredor", "Gangue de Goblins", "Mago Elétrico", "Príncipe"], correct: -1, images: ["images/q1a.webp","images/q1b.webp","images/q1c.webp","images/q1d.webp"] },
+{ q: "Qual a melhor sensação no Clash Royale?", opts: ["Virar no último segundo", "Dar 3 coroas", "Defender um push inteiro", "Desbloquear uma Lendária"], correct: -1 },
+{ q: "O que falta pra sua conta ficar perfeita?", opts: ["Cartas no nível máximo", "Mais gemas", "Evoluções novas", "Pass Royale"], correct: -1 },
+{ q: "Qual evolução você mais quer desbloquear?", opts: ["Fantasma Real", "Megacavaleiro", "Exército de Esqueletos", "Outra Evolução"], correct: -1, images: ["images/q4a.webp","images/q4b.webp","images/q4c.webp","images/q4d.webp"] },
+{ q: "Qual é o herói que você mais gosta?", opts: ["Goblins Herói", "Mini Pekka Herói", "Arqueiro Mágico Herói", "Outro Herói"], correct: -1 },
+{ q: "O que você mais valoriza no Pass Royale?", opts: ["Evolução ou Herói Exclusivo", "Muitos Baús Exclusivos", "Skin de Torre + Nome Dourado", "Emote do Passe"], correct: -1 }
+];
+
+var currentQ = 0;
+var revealed = 0;
+var answering = false;
+var shuffledQ = [];
+
+function shuffle(arr) {
+    var a = arr.slice();
+    for (var i = a.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var t = a[i]; a[i] = a[j]; a[j] = t;
+    }
+    return a;
+}
+
+function buildGrid() {
+    var puzzle = document.getElementById('puzzle');
+    for (var i = 0; i < TOTAL; i++) {
+        var cell = document.createElement('div');
+        cell.className = 'cell';
+        cell.id = 'cell-' + i;
+        cell.innerHTML =
+            '<div class="card-inner">' +
+                '<div class="card-front"><span class="q">?</span><div class="shimmer"></div></div>' +
+                '<div class="card-back">' +
+                    '<img src="' + CARD_IMAGES[i] + '" alt="Item" loading="eager" decoding="sync" fetchpriority="high">' +
+                    '<div class="card-flash"></div>' +
+                '</div>' +
+            '</div>';
+        puzzle.appendChild(cell);
+    }
+    document.getElementById('cell-0').classList.add('next-reveal');
+}
+
+function showNextQuestion() {
+    if (currentQ >= TOTAL) return;
+    var qData = QUESTIONS[shuffledQ[currentQ]];
+    var area = document.getElementById('q-area');
+    var optsHTML = '';
+    for (var i = 0; i < qData.opts.length; i++) {
+        optsHTML += '<button class="q-opt" data-idx="' + i + '" onclick="answer(this,' + i + ')">' + qData.opts[i] + '</button>';
+    }
+    area.innerHTML =
+        '<div class="q-card">' +
+            '<div class="q-header"><p>' + qData.q + '</p></div>' +
+            '<div class="q-opts">' + optsHTML + '</div>' +
+        '</div>';
+}
+
+function answer(btn, idx) {
+    if (answering) return;
+    answering = true;
+    var qData = QUESTIONS[shuffledQ[currentQ]];
+    var isOpinion = qData.correct === -1;
+    var isCorrect = isOpinion || idx === qData.correct;
+    var allBtns = document.querySelectorAll('.q-opt');
+    for (var b = 0; b < allBtns.length; b++) allBtns[b].classList.add('disabled');
+    // Trocar src da imagem IMEDIATAMENTE (durante o delay do feedback ela já carrega)
+    if (qData.images && qData.images[idx]) {
+      var imgEl = document.getElementById('cell-' + revealed).querySelector('.card-back img');
+      if (imgEl.src.indexOf(qData.images[idx]) === -1) imgEl.src = qData.images[idx];
+    }
+    if (isCorrect) {
+        btn.classList.add('correct');
+        if (navigator.vibrate) navigator.vibrate([20, 40, 20]);
+    } else {
+        btn.classList.add('wrong');
+        var correctBtn = document.querySelector('.q-opt[data-idx="' + qData.correct + '"]');
+        if (correctBtn) correctBtn.classList.add('correct');
+        if (navigator.vibrate) navigator.vibrate(80);
+    }
+    var delay = isCorrect ? 500 : 800;
+    setTimeout(function() {
+        var cell = document.getElementById('cell-' + revealed);
+        cell.classList.remove('next-reveal');
+        cell.classList.add('revealed');
+        revealed++;
+        currentQ++;
+        document.getElementById('progress-fill').style.width = (revealed / TOTAL * 100) + '%';
+        document.getElementById('progress-count').textContent = revealed + '/' + TOTAL;
+        if (revealed === TOTAL) {
+            document.getElementById('q-area').innerHTML = '';
+            setTimeout(showCompletion, 700);
+            answering = false;
+            return;
+        }
+        var nextCell = document.getElementById('cell-' + revealed);
+        if (nextCell) nextCell.classList.add('next-reveal');
+        setTimeout(function() {
+            showNextQuestion();
+            answering = false;
+            setTimeout(function() {
+                document.getElementById('q-area').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }, 100);
+        }, 400);
+    }, delay);
+}
+
+function showCompletion() {
+    spawnConfetti();
+    document.getElementById('complete-overlay').classList.add('active');
+}
+
+function irParaOfertas() {
+    document.getElementById('complete-overlay').style.animation = 'fadeOut 0.4s ease-out forwards';
+    setTimeout(function() { window.location.href = LINK_OFERTAS; }, 400);
+}
+
+function spawnConfetti() {
+    var colors = ['#FFD700','#FF8C00','#4a9ff5','#c78c3a','#1e7ce0','#FFB800'];
+    var wrap = document.createElement('div');
+    wrap.className = 'confetti-wrap';
+    document.body.appendChild(wrap);
+    for (var i = 0; i < 50; i++) {
+        var p = document.createElement('div');
+        p.className = 'confetti-piece';
+        var s = 5 + Math.random()*8;
+        p.style.cssText = 'left:'+Math.random()*100+'%;width:'+s+'px;height:'+s+'px;background:'+colors[Math.floor(Math.random()*colors.length)]+';border-radius:'+(Math.random()>.5?'50%':'2px')+';animation-duration:'+(2+Math.random()*2.5)+'s;animation-delay:'+Math.random()*.6+'s;';
+        wrap.appendChild(p);
+    }
+    setTimeout(function(){ wrap.remove(); }, 5000);
+}
+
+shuffledQ = [0,1,2,3,4,5];
+buildGrid();
+showNextQuestion();
+
+history.pushState(null, null, location.href);
+window.onpopstate = function() { history.go(1); };
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  if(window.clarity) window.clarity('event','etapa_album');
+});
+(function(){
+  var _orig = window.irParaOfertas;
+  window.irParaOfertas = function(){
+    if(window.clarity) window.clarity('event','completou_album');
+    _orig.apply(this, arguments);
+  };
+})();
+</script>
+</body>
+</html>
