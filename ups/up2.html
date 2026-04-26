@@ -1,41 +1,42 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<script src="utm_xtrackytrack.js"></script>
-<script src="utmifytrack.js"></script>
-
-<script>
-
-document.addEventListener('contextmenu', function(e) {
-e.preventDefault();
-});
-
-// Impede combinações de teclas como Ctrl+U, Ctrl+C, Ctrl+V, F12, Ctrl+Shift+I
-document.addEventListener('keydown', function(e) {
-if (
-(e.ctrlKey && (e.key === 'u' || e.key === 'c' || e.key === 'v' || e.key === 's')) ||
-(e.key === 'F12') ||
-(e.ctrlKey && e.shiftKey && e.key === 'I') ||
-(e.ctrlKey && e.key === 'Shift' && e.key === 'I') ||
-(e.ctrlKey && e.key === 'J')
-) {
-e.preventDefault();
-}
-});
-</script>
-<!-- Microsoft Clarity -->
-<script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "wahzbczx2t");
-</script>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
 <title>Status</title>
 <meta name="theme-color" content="#0f377d"/>
 <link rel="icon" href="../favicon.ico"/>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1136034178186305');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1136034178186305&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+<script type="text/javascript">
+(function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "vlf2dhmw32");
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  if(window.clarity) window.clarity('event','etapa_up2');
+});
+</script>
 <script>
 window.onload = function () {
   var links = document.getElementsByTagName("a");
@@ -491,7 +492,7 @@ window.onload = function () {
 
         <!-- Botao final -->
         <div id="finalButton" class="hidden" style="margin-top:20px;">
-          <button class="up-cta up-pulse" onclick="if(window.clarity) window.clarity('event','iniciou_checkout2'); window.location.href='checkout2.html'">
+          <button class="up-cta up-pulse" onclick="if(window.clarity) window.clarity('event','iniciar_checkout_up2'); window.location.href='checkout2.html' + window.location.search">
             <span>Supercell Pass</span>
             <span class="material-symbols-outlined" style="font-size:24px;">arrow_forward_ios</span>
           </button>
@@ -608,18 +609,6 @@ window.addEventListener("load", fetchLocation);
   var yyyy = d.getFullYear();
   var el = document.getElementById('up-order-date');
   if(el) el.textContent = 'Verificação realizada em ' + dd + '/' + mm + '/' + yyyy;
-})();
-</script>
-<script>
-document.addEventListener('DOMContentLoaded', function(){
-  if(window.clarity) window.clarity('event','etapa_ups2');
-});
-(function(){
-  var _orig = window.showAd2;
-  window.showAd2 = function(){
-    if(window.clarity) window.clarity('event','clicou_cta_ups2');
-    _orig.apply(this, arguments);
-  };
 })();
 </script>
 
