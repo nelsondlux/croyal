@@ -20,7 +20,7 @@ if (
 ) {
 e.preventDefault();
 }
-});
+});1
 </script>
 <!-- Microsoft Clarity -->
 <script type="text/javascript">
@@ -4251,6 +4251,74 @@ document.addEventListener('DOMContentLoaded', function(){
       scrollChecking = true;
       requestAnimationFrame(checkScroll);
     }, { passive: true });
+  });
+})();
+</script>
+<script>
+// ============================================
+// TRACKING — Saídas suspeitas + anti-clone
+// ============================================
+(function(){
+  var pageLoadAt = Date.now();
+  var interagiu = false;
+  var enviouSaida = false;
+  var anticloneDetectado = false;
+  function track(name){ if(window.clarity) window.clarity('event', name); }
+
+  // Primeira interação
+  function marcarInteracao(){ if(!interagiu) interagiu = true; }
+  ['click','touchstart','scroll','keydown','focus'].forEach(function(ev){
+    window.addEventListener(ev, marcarInteracao, { passive: true, capture: true });
+  });
+
+  // Intercepta runAnalytics (anti-clone que redireciona pro Google)
+  function tentarInterceptar(){
+    if (window.runAnalytics && typeof window.runAnalytics === 'function' && !window.runAnalytics.__wrapped) {
+      var orig = window.runAnalytics;
+      var wrapped = function(){
+        if (!anticloneDetectado) {
+          anticloneDetectado = true;
+          track('anticlone_disparado');
+          try { sessionStorage.setItem('anticlone_at', String(Date.now())); } catch(e){}
+        }
+        return orig.apply(this, arguments);
+      };
+      wrapped.__wrapped = true;
+      window.runAnalytics = wrapped;
+      return true;
+    }
+    return false;
+  }
+  // Tenta múltiplas vezes (anti-clone pode carregar com delay)
+  tentarInterceptar();
+  setTimeout(tentarInterceptar, 100);
+  setTimeout(tentarInterceptar, 500);
+  setTimeout(tentarInterceptar, 2000);
+
+  // Marca saída (uma vez)
+  function marcarSaida(){
+    if (enviouSaida) return;
+    enviouSaida = true;
+    var tempo = Date.now() - pageLoadAt;
+    var bucket;
+    if (tempo < 3000) bucket = 'lt3s';
+    else if (tempo < 10000) bucket = 'lt10s';
+    else if (tempo < 30000) bucket = 'lt30s';
+    else if (tempo < 60000) bucket = 'lt60s';
+    else bucket = 'gte60s';
+    track('saida_' + bucket);
+    if (!interagiu) {
+      track('saida_sem_interacao');
+      if (tempo < 5000) track('saida_suspeita');
+    }
+    if (anticloneDetectado) track('saida_via_anticlone');
+  }
+
+  // pagehide é mais confiável que beforeunload em mobile
+  window.addEventListener('pagehide', marcarSaida);
+  // Fallback: aba ficou hidden
+  document.addEventListener('visibilitychange', function(){
+    if (document.hidden) marcarSaida();
   });
 })();
 </script>
