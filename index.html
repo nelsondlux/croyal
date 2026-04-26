@@ -3312,7 +3312,8 @@ html {
             return;
           }
           sessionStorage.setItem('cartItems', JSON.stringify(cartItems));
-          window.location.href = 'checkout/index.html';
+          // Preserva query string (UTMs/ttclid/fbclid) pro tracking chegar no checkout
+          window.location.href = 'checkout/index.html' + window.location.search;
         });
 
         // Setup buy buttons
