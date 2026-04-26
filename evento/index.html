@@ -204,7 +204,6 @@
         <div class="success-message">
             <p class="success-title">Parabéns!<br>Sua vez chegou!</p>
         </div>
-        <button class="cta-button" id="continueButton" onclick="continuar()">CONTINUAR</button>
     </div>
 
     <div class="security-badge">
@@ -252,6 +251,8 @@ function startQueueCountdown() {
                     queueMessage.style.display = 'none';
                     successContent.style.display = 'block';
                     successContent.style.animation = 'fadeIn 0.6s ease-out forwards';
+                    // Auto-redirect 1.5s após "Parabéns!" aparecer
+                    setTimeout(continuar, 1500);
                 }, 500);
             }, 500);
         }
