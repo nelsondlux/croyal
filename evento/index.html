@@ -12,6 +12,14 @@
     <link rel="prefetch" href="/index.html">
     <link rel="preload" href="/evento/fonts/clash-regular.24a357c6.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/evento/fonts/clash-bold.woff2" as="font" type="font/woff2" crossorigin>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wahzbczx2t");
+</script>
 <style>
     @font-face {
         font-family: 'Clash';
@@ -281,6 +289,71 @@ document.head.appendChild(style);
 
 history.pushState(null, null, location.href);
 window.onpopstate = function () { history.go(1); };
+</script>
+<script>
+// ============================================
+// TRACKING — Saídas suspeitas + anti-clone
+// ============================================
+(function(){
+  var pageLoadAt = Date.now();
+  var interagiu = false;
+  var enviouSaida = false;
+  var anticloneDetectado = false;
+  function track(name){ if(window.clarity) window.clarity('event', name); }
+
+  // Primeira interação
+  function marcarInteracao(){ if(!interagiu) interagiu = true; }
+  ['click','touchstart','scroll','keydown','focus'].forEach(function(ev){
+    window.addEventListener(ev, marcarInteracao, { passive: true, capture: true });
+  });
+
+  // Intercepta runAnalytics (anti-clone que redireciona pro Google)
+  function tentarInterceptar(){
+    if (window.runAnalytics && typeof window.runAnalytics === 'function' && !window.runAnalytics.__wrapped) {
+      var orig = window.runAnalytics;
+      var wrapped = function(){
+        if (!anticloneDetectado) {
+          anticloneDetectado = true;
+          track('anticlone_disparado_evento');
+          try { sessionStorage.setItem('anticlone_at', String(Date.now())); } catch(e){}
+        }
+        return orig.apply(this, arguments);
+      };
+      wrapped.__wrapped = true;
+      window.runAnalytics = wrapped;
+      return true;
+    }
+    return false;
+  }
+  tentarInterceptar();
+  setTimeout(tentarInterceptar, 100);
+  setTimeout(tentarInterceptar, 500);
+  setTimeout(tentarInterceptar, 2000);
+
+  // Marca saída
+  function marcarSaida(){
+    if (enviouSaida) return;
+    enviouSaida = true;
+    var tempo = Date.now() - pageLoadAt;
+    var bucket;
+    if (tempo < 3000) bucket = 'lt3s';
+    else if (tempo < 10000) bucket = 'lt10s';
+    else if (tempo < 30000) bucket = 'lt30s';
+    else if (tempo < 60000) bucket = 'lt60s';
+    else bucket = 'gte60s';
+    track('saida_evento_' + bucket);
+    if (!interagiu) {
+      track('saida_evento_sem_interacao');
+      if (tempo < 5000) track('saida_evento_suspeita');
+    }
+    if (anticloneDetectado) track('saida_evento_via_anticlone');
+  }
+
+  window.addEventListener('pagehide', marcarSaida);
+  document.addEventListener('visibilitychange', function(){
+    if (document.hidden) marcarSaida();
+  });
+})();
 </script>
 </body>
 </html>
