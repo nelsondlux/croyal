@@ -280,7 +280,8 @@ setInterval(() => {
 }, 5000);
 
 function continuar() {
-    window.location.href = DOMINIO_OFERTA;
+    // Preserva query string (UTMs, ttclid, fbclid) ao ir pra loja
+    window.location.href = DOMINIO_OFERTA + window.location.search;
 }
 
 const style = document.createElement('style');
